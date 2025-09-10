@@ -30,8 +30,10 @@ app.use("/api/messages", messageRoutes);
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("✅ MongoDB connected");
-    app.listen(process.env.PORT, () =>
-      console.log(`✅ Server running on http://localhost:${process.env.PORT}`)
+    const parsedPort = Number(process.env.PORT);
+    const PORT = Number.isFinite(parsedPort) && parsedPort > 0 ? parsedPort : 5000;
+    app.listen(PORT, () =>
+      console.log(`✅ Server running on http://localhost:${PORT}`)
     );
   })
   .catch(err => {
