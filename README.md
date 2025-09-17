@@ -175,6 +175,3 @@ backend/
 
 MIT
 
-MIT
-
-- I generated a concise backend README covering setup, env vars, routes, scripts, and deployment aligned with your current files.
